@@ -1,13 +1,15 @@
 {-
-
 == Day 1: Part 1 Sonar Sweep
 
 https://adventofcode.com/2021/day/1
 
 > cat day01.test | runghc day01-1
-7
+> 7
 
-== Explore
+> cat day01.data | runghc day01-1
+> 1696
+
+=== Explore
 
 Test data:
 
@@ -30,6 +32,11 @@ solve :: [Int] -> Int
 solve xs = sum $ map fromEnum $ zipWith (<) xs (drop 1 xs)
 
 main :: IO ()
+main = getContents >>= print . solve . map read . words
+
+{- same as
+main :: IO ()
 main = do
   xs <- map read . words <$> getContents
   print $ solve xs
+-}
