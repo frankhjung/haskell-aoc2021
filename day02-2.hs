@@ -1,5 +1,5 @@
 {-
-== Day 2 - Dive Part 2
+== Day 2: Part 2 - Dive
 
 With test data this Should return: 200
 

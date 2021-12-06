@@ -1,5 +1,5 @@
 {-
-== Day 2 - Part 1 - Dive
+== Day 2: Part 1 - Dive
 
 With test data this Should return: depth 10 * position 15 = 150
 
