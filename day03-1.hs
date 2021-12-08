@@ -49,7 +49,6 @@ Then convert to decimal and multiply:
 λ> liftA2 (*) (bintodec . read . map gamma) (bintodec . read . map epsilon) zs
 198
 
-
 == Answers
 
   $ cat day03.test | runhaskell day03-1

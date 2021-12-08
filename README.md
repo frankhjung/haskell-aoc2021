@@ -44,3 +44,19 @@ cat day03.data | runghc day03-2
 3570354
 ```
 
+## Day 4 - part 1
+
+```bash
+make day04-1
+cat day04.data | ./day04-1
+6592
+```
+
+## Day 4 - part 2
+
+```bash
+make day04-2
+cat day04.data | ./day04-2
+31755
+```
+
