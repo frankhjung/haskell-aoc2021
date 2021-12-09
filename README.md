@@ -60,3 +60,26 @@ cat day04.data | ./day04-2
 31755
 ```
 
+## Day 5 - part 1
+
+```bash
+make day05-1
+./day05-1 day05.data
+5442
+```
+
+## Day 5 - part 2
+
+```bash
+make day05-2
+./day05-2 day05.data
+19571
+```
+
+## Day 6 - part 1
+
+```bash
+make day06-1
+cat day06.data | ./day06-1
+359999
+```

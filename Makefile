@@ -9,7 +9,7 @@
 #-ghc -Wall -Wno-type-defaults -O2 -threaded -rtsopts -prof --make $<
 #-ghc -Wall -Wno-type-defaults -rtsopts -prof --make $<
 %:%.hs
-	-ghc -O2 -Wall -package split --make $<
+	-ghc -O3 -Wall -package split --make $<
 
 SRCS	:= $(wildcard *.hs)
 TGTS 	:= $(patsubst %.hs, %, $(SRCS))
