@@ -91,3 +91,11 @@ make day06-2
 cat day06.data | ./day06-2
 1631647919273
 ```
+
+## Day 7 - part 1
+
+```bash
+make day07-1
+cat day06.data | ./day07-1
+359648
+```
