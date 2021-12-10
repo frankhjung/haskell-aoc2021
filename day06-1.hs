@@ -53,22 +53,23 @@ $ cat day06.data | ./day06-1
 
 -}
 
+import           Control.Arrow   ((&&&))
+import           Data.List       (group, sort)
 import           Data.List.Split (splitOn)
 
-fish :: [Int] -> [Int]
-fish [] = []
-fish (f:fs)
-  | f == 0    = 8:6:fish fs
-  | otherwise = f-1:fish fs
+-- Frequencies of each fish in the school.
+frequency :: [Int] -> [(Int, Int)]
+frequency xs = map (head &&& length) $ (group . sort) xs
 
--- repeat a function `f` `n` times given initial value `v`.
--- This generates a list of functions `f` of lenght `n`
--- then folds over the input using the function list.
-apply :: Int -> (a -> a) -> a -> a
-apply n f v = foldl (\s p -> p s) v [f | _ <- [1..n]]
+-- Count fish given days and timer.
+fish :: Int -> Int -> Int
+fish 0 _        = 1
+fish days 0     = fish (days - 1) 6 + fish (days - 1) 8
+fish days timer = fish (days - 1) (timer - 1)
 
+-- Count fish after given days.
 solve :: Int -> [Int] -> Int
-solve n xs = length (apply n fish xs)
+solve n xs = sum $ map (\(f, d) -> fish n f * d) (frequency xs)
 
 main :: IO ()
 main = interact $ show . solve 80 . map read . splitOn ","
