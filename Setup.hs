@@ -1,4 +1,4 @@
 import           Data.List.Split
+import qualified Data.Map            as Map
 import           Distribution.Simple
-import qualified Data.Map as Map
 main = defaultMain

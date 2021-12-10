@@ -45,11 +45,17 @@ be after 80 days?
 
 === Test
 
-$ cat day06.test | ./day06-1
+$ time (cat day06.test | ./day06-1)
 5934
+real  0m0.016s
+user  0m0.003s
+sys   0m0.009s
 
-$ cat day06.data | ./day06-1
+$ time (cat day06.data | ./day06-1)
 359999
+real  0m0.018s
+user  0m0.011s
+sys   0m0.004s
 
 -}
 
@@ -68,8 +74,12 @@ fish days 0     = fish (days - 1) 6 + fish (days - 1) 8
 fish days timer = fish (days - 1) (timer - 1)
 
 -- Count fish after given days.
-solve :: Int -> [Int] -> Int
-solve n xs = sum $ map (\(f, d) -> fish n f * d) (frequency xs)
+solve :: [Int] -> Int
+solve xs = sum $ map (\(f, d) -> fish 80 f * d) (frequency xs)
+
+-- parse input split on commas
+parse :: String -> [Int]
+parse = map read . splitOn ","
 
 main :: IO ()
-main = interact $ show . solve 80 . map read . splitOn ","
+main = interact $ show . solve . parse
