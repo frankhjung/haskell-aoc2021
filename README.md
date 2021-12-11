@@ -107,3 +107,19 @@ make check day07-2
 cat day07.data | ./day07-2
 (497,100727924)
 ```
+
+## Day 8 - part 1
+
+```bash
+make check day08-1
+./day08-1 day08.data
+352
+```
+
+## Day 8 - part 2
+
+```bash
+make check day08-2
+./day08-2 day08.data
+?
+```
