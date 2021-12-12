@@ -121,5 +121,5 @@ make check day08-1
 ```bash
 make check day08-2
 ./day08-2 day08.data
-?
+936117
 ```
