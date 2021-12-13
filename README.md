@@ -123,3 +123,19 @@ make check day08-2
 ./day08-2 day08.data
 936117
 ```
+
+## Day 9 - part 1
+
+```bash
+make check day09-1
+cat day09.data | ./day09-1
+468
+```
+
+## Day 9 - part 2
+
+```bash
+make check day09-2
+cat day09.data | ./day09-2
+???
+```
