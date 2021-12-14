@@ -137,5 +137,5 @@ cat day09.data | ./day09-1
 ```bash
 make check day09-2
 cat day09.data | ./day09-2
-???
+1280496
 ```
