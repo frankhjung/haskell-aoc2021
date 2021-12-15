@@ -147,3 +147,12 @@ make check day10-1
 cat day10.data | ./day10-1
 294195
 ```
+
+## Day 10/2
+
+```bash
+make check day10-2
+cat day10.data | ./day10-2
+3490802734
+```
+

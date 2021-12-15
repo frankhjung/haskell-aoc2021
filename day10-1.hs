@@ -1,5 +1,3 @@
-import           Data.List  (elemIndex)
-import           Data.Maybe (fromJust)
 {-
 == Day 10: Part 1 - Syntax Scoring
 
@@ -41,20 +39,31 @@ cat day10.data | ./day10-1
 
 -- process each line reporting all syntax errors, sum points for syntax errors
 solve :: [String] -> Int
-solve = sum . map (processCode [])
+solve = sum . processCode
 
--- process current line looking for invalid syntax
-processCode :: String -> String -> Int
-processCode _ [] = 0
-processCode processed (c:cs)
-  | c `elem` right && null processed       = points c
-  | c `elem` right && lc /= head processed = points c
-  | c `elem` right && lc == head processed = processCode (tail processed) cs
-  | otherwise                              = processCode (c:processed) cs
+processCode :: [String] -> [Int]
+processCode = map (go [])
   where
-    left = "([{<"
-    right = ")]}>"
-    lc = left !! fromJust (elemIndex c right)
+    -- process current line looking for invalid syntax
+    -- processed    code      score
+    go :: String -> String -> Int
+    go _ [] = 0
+    go processed (c:cs)
+      | c `elem` right && null processed           = points c
+      | c `elem` right && open c /= head processed = points c
+      | c `elem` right && open c == head processed = go (tail processed) cs
+      | otherwise                                  = go (c:processed) cs
+      where
+        right = ")]}>"
+
+-- get matching opening left brace
+open :: Char -> Char
+open c = case c of
+  ')' -> '('
+  ']' -> '['
+  '}' -> '{'
+  '>' -> '<'
+  _   -> error (c:" invalid char")
 
 -- convert syntax code to points
 points :: Char -> Int
