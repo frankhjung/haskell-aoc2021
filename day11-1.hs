@@ -56,7 +56,7 @@ import           Data.Char          (digitToInt)
 -- Octopus energy levels
 data Octopus = Exhausted | Energized | Latent Int deriving (Show, Eq)
 
--- Cave location of Octopi
+-- Cave location of octopuses
 type Cave = Array (Int, Int) Octopus
 
 -- increment energy levels of an octopus
