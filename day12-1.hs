@@ -83,7 +83,7 @@ allRoutes paths = filter ((==end) . last) $ (start:) <$> go S.empty start
     -- Find all valid paths.
     --    visited   current   found paths
     go :: Set Cave -> Cave -> [[Cave]]
-    go visited from = pure [] <> do
+    go visited from = pure [] <> do             -- accumulate all paths
       guard (from /= end)                       -- stop if we're at the end
       p <- paths                                -- read each path
       to <- maybeToList $ nextPath from p       -- get the next cave to visit
