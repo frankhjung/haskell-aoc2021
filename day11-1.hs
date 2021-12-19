@@ -97,10 +97,10 @@ neighbours (x, y) = [(x + dx, y + dy) | dx <- [-1,0,1], dy <- [-1,0,1], (dx,dy) 
 
 -- Parse input into 2D array.
 parse :: String -> Cave
-parse raw = listArray bs octopi
+parse raw = listArray ix octopi
   where
     rows = lines raw
-    bs = ((0, 0), (length rows - 1, length (head rows) - 1))
+    ix = ((0, 0), (length rows - 1, length (head rows) - 1))
     octopi = fmap (Latent . digitToInt) (concat rows)
 
 -- Count the number of flashes after 100 steps.
