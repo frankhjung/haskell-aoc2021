@@ -128,7 +128,7 @@ score :: String -> Int
 score = foldl score' 0
   where
     score' :: Int -> Char -> Int
-    score' acc c = (5 * acc) + points c
+    score' acc c = 5 * acc + points c
 
 -- convert syntax code to points
 points :: Char -> Int

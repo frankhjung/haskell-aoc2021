@@ -57,7 +57,7 @@ solve (template, rules) = result (runApply 10 template)
     --returns difference of maximum vs minimum occurence of an element in polymer
     result :: Polymer -> Int
     result polymer = maximum counts - minimum counts
-      where counts = count polymer
+      where counts = M.elems (count polymer)
 
 -- count the occurences of characters in a string
 count :: String -> M.Map Char Int
